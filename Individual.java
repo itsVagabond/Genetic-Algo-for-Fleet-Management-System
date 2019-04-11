@@ -33,4 +33,8 @@ public class Individual {
 
         return fitness;
     }
+
+    public void setAssembly(int index, Assembly assem) {
+        assemblies[index] = assem;
+    }
 }

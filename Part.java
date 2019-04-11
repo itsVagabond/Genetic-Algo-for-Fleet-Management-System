@@ -23,4 +23,10 @@ public class Part {
     public byte[] getAlternatives() {
         return alternatives;
     }
+
+    public void setAlternative(int index) {
+        Arrays.fill(alternatives, (byte)0);
+
+        alternatives[index] = 1;
+    }
 }
