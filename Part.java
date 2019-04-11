@@ -13,7 +13,7 @@ public class Part {
         int alt = (int) (Math.random() * size);
 
         alternatives[alt] = 1;
-        System.out.println(Arrays.toString(alternatives));
+        //System.out.println(Arrays.toString(alternatives));
     }
 
     public int size(int assemIndex, int modIndex, int parIndex) {

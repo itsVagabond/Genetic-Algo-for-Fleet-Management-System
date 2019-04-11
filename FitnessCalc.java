@@ -18,16 +18,18 @@ public class FitnessCalc {
         byte[] alternatives;
 
         for (int i = 0; i < individual.size(); i++) {   // 2
-            System.out.println("FitnessCalc.getFitness i : " + i);
             for(int j = 0; j < individual.getAssembly(i).size(i); j++) {    // 0->3 1->4
-                System.out.println("FitnessCalc.getFitness j : " + j);
                 for(int k = 0; k < individual.getAssembly(i).getModule(j).size(i, j); k++) { // { 0->{ 0->3, 1->2, 2->5 }, 1->{ 0->3, 1->2, 2->3, 3->2 } }
-                    System.out.println("FitnessCalc.getFitness k : " + k);    
                     alternatives = individual.getAssembly(i).getModule(j).getPart(k).getAlternatives();
                     int alt = findIndex(alternatives, 1);
 
+                    if(alt == -1) {
+                        System.out.println("ERROR occured :::: java programm has stopped!!!");
+                        System.exit(1);
+                    }
+
                     fitness += getAcquisitionCost(i, j, k, alt);
-                    System.out.println("FitnessCalc.getFitness fitness : " + fitness);
+                    //System.out.println("FitnessCalc.getFitness fitness : " + fitness);
                 }
             }
         }
@@ -35,13 +37,9 @@ public class FitnessCalc {
         return fitness;
     }
 
-    public static int findIndex(byte[] my_array, int t) {
-        if (my_array == null) return -1;
-        int len = my_array.length;
-        int i = 0;
-        while (i < len) {
-            if (my_array[i] == t) return i;
-            else i=i+1;
+    public static int findIndex(byte[] arr, int t) {
+        for(int i = 0; i < arr.length; i++) {
+            if (arr[i] == t) return i;
         }
         return -1;
     }

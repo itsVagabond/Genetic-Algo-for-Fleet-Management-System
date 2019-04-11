@@ -6,10 +6,8 @@ public class Module {
     public void generateModule(int assemblyIndex, int moduleIndex) {
         int size = size(assemblyIndex, moduleIndex);
         parts = new Part[size];
-        //System.out.println("Hello World 7");
         // Loop and create Parts
         for (int i = 0; i < size; i++) {
-            //System.out.println("Hello World => " + i);
             Part newPart = new Part();
             newPart.generatePart(assemblyIndex, moduleIndex, i);
             savePart(i, newPart);
