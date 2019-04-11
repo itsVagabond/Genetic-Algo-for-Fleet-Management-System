@@ -24,4 +24,8 @@ public class Module {
     public int size(int assemIndex, int modIndex) {
         return defaultPartLength[assemIndex][modIndex];
     }
+
+    public Part getPart(int index) {
+        return parts[index];
+    }
 }

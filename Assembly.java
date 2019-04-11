@@ -24,4 +24,8 @@ public class Assembly {
     public int size(int assemIndex) {
         return defaultModuleLength[assemIndex];
     }
+
+    public Module getModule(int index) {
+        return modules[index];
+    }
 }
